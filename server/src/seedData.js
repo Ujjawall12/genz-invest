@@ -68,17 +68,18 @@ export async function seed() {
     contacts: CONTACTS
   });
 
-  await Squad.create([
-    { owner: user._id, name: 'Goa Trip', emoji: '🏖️', target: 80000, months: 5,
-      members: [{ ...me, amount: 9000 }, contact('kabir', 11000), contact('ananya', 8000), contact('rohan', 10000)],
-      feed: [
-        { text: 'Kabir added ₹2,000', at: daysAgo(2) }, { text: 'Rohan added ₹1,500', at: daysAgo(4) },
-        { text: 'You added ₹2,000', at: daysAgo(7) }, { text: 'Ananya joined the squad', at: daysAgo(21) }
-      ] },
-    { owner: user._id, name: 'Flat Deposit', emoji: '🏠', target: 60000, months: 9,
-      members: [{ ...me, amount: 14000 }, contact('ishaan', 12500)],
-      feed: [{ text: 'Ishaan added ₹2,500', at: daysAgo(5) }, { text: 'You added ₹3,000', at: daysAgo(14) }] }
-  ]);
+  // Squads list newest first, so the headline example (Goa Trip) gets the latest createdAt
+  await Squad.create({ owner: user._id, name: 'Flat Deposit', emoji: '🏠', target: 60000, months: 9,
+    members: [{ ...me, amount: 14000 }, contact('ishaan', 12500)],
+    feed: [{ text: 'Ishaan added ₹2,500', at: daysAgo(5) }, { text: 'You added ₹3,000', at: daysAgo(14) }],
+    createdAt: daysAgo(30) });
+  await Squad.create({ owner: user._id, name: 'Goa Trip', emoji: '🏖️', target: 80000, months: 5,
+    members: [{ ...me, amount: 9000 }, contact('kabir', 11000), contact('ananya', 8000), contact('rohan', 10000)],
+    feed: [
+      { text: 'Kabir added ₹2,000', at: daysAgo(2) }, { text: 'Rohan added ₹1,500', at: daysAgo(4) },
+      { text: 'You added ₹2,000', at: daysAgo(7) }, { text: 'Ananya joined the squad', at: daysAgo(21) }
+    ],
+    createdAt: daysAgo(21) });
 
   return user;
 }
