@@ -4,7 +4,7 @@
 
 **Own What You Love + Squads: a GenZ-first investing concept for Groww**
 
-[**Live demo**](https://genz-invest.vercel.app) · [Case study](docs/CASE_STUDY.md) · [Case study (PDF)](docs/GenZ-Invest-Case-Study.pdf) · [API health](https://genz-invest.vercel.app/api/health)
+[**Live demo**](https://genz-invest.vercel.app) · [API health](https://genz-invest.vercel.app/api/health)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
