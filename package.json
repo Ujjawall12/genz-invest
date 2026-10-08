@@ -1,0 +1,23 @@
+{
+  "name": "genz-invest",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "GenZ investing concept (Own What You Love + Squads), built on the MERN stack",
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "concurrently -n api,web -c green,blue \"cd server && npm run dev\" \"cd client && npm run dev\"",
+    "build": "cd server && npm install && cd ../client && npm install --include=dev && npm run build",
+    "start": "cd server && npm start",
+    "seed": "cd server && npm run seed"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
